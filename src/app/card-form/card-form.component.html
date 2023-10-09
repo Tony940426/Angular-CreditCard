@@ -1,6 +1,16 @@
 <form [formGroup] ="cardForm">
     <input formControlName="name" class="input" type="text" placeholder="Enter Your Name">
+    <ng-container *ngIf="cardForm.controls.name.hasError">
+        <div *ngIf="cardForm.get('name')?.hasError('required')">
+            <p>value is required</p>
+        </div>
+        <div *ngIf="cardForm.get('name')?.errors?minlength.requiredlength">
+            <p>value is required</p>
+        </div>
+    </ng-container>
+
 </form>
+
 
 
 <div>
