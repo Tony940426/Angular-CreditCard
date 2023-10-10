@@ -2,20 +2,11 @@
     <input formControlName="name" class="input" type="text" placeholder="Enter Your Name">
     <ng-container *ngIf="cardForm.controls.name.hasError">
         <div *ngIf="cardForm.get('name')?.hasError('required')">
-            <p>value is required</p>
+            <p class="warning">VALUE IS REQUIRED</p>
         </div>
-        <div *ngIf="cardForm.get('name')?.errors?minlength.requiredlength">
-            <p>value is required</p>
+        <div *ngIf="cardForm.get('name')?.hasError('minlength')">
+            <p class="warning">VALUE YOU ENTERED IS {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').actualLength : '' }}
+                IT NEEDS TO BE MORE THAN {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').requiredLength : '' }}
         </div>
     </ng-container>
-
 </form>
-
-
-
-<div>
-    Form Contents: {{ cardForm.value|json }}
-</div>
-<div>
-    Form is valid: {{cardForm.valid}}
-</div>
