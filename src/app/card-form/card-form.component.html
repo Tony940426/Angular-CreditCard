@@ -1,12 +1,3 @@
-<form [formGroup] ="cardForm">
-    <input formControlName="name" class="input" type="text" placeholder="Enter Your Name">
-    <ng-container *ngIf="cardForm.controls.name.touched && cardForm.controls.name.errors && cardForm.controls.name.dirty">
-        <div *ngIf="cardForm.get('name')?.hasError('required')">
-            <p class="warning">VALUE IS REQUIRED</p>
-        </div>
-        <div *ngIf="cardForm.get('name')?.hasError('minlength')">
-            <p class="warning">VALUE YOU ENTERED IS {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').actualLength : '' }}
-                IT NEEDS TO BE MORE THAN {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').requiredLength : '' }}
-        </div>
-    </ng-container>
+<form [formControl]="control">
+    <app-input [control]="cardForm.get('name')"></app-input>
 </form>
