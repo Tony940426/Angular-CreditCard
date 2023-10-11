@@ -1,5 +1,5 @@
-<input formControlName="name" class="input" type="text" placeholder="Enter Your Name">
-<ng-container *ngIf="
+<input [formControl]="control" class="input">
+<!-- <ng-container *ngIf="
 cardForm.controls.name.touched && 
 cardForm.controls.name.errors && 
 cardForm.controls.name.dirty
@@ -11,4 +11,4 @@ cardForm.controls.name.dirty
         <p class="warning">VALUE YOU ENTERED IS {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').actualLength : '' }}
             IT NEEDS TO BE MORE THAN {{ cardForm.get('name')?.hasError('minlength') ? cardForm.get('name')?.getError('minlength').requiredLength : '' }}
     </div>
-</ng-container>
+</ng-container> -->

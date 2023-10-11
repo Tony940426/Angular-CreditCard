@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -7,7 +7,10 @@ import { FormControl } from '@angular/forms';
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.css']
 })
-export class InputComponent {
-@Input() control: FormControl;
+export class InputComponent implements OnInit{
+@Input() formControlInput: FormControl;
 
+constructor(){
+}
+ngOnInit(){}
 }
